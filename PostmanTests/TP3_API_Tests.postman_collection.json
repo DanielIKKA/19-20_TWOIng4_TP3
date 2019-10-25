@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "94ebee6b-e724-472d-b698-5233ef1aceaa",
+		"name": "TP3_API_Tests",
+		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "OpenWeather",
+			"item": [
+				{
+					"name": "Forecast3Days",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL_DAILY}}?q=paris&mode=json&units=metric&cnt=4&appid=4081444b7b90198136fefe6ed4ccf35b",
+							"host": [
+								"{{API_URL_DAILY}}"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "paris"
+								},
+								{
+									"key": "mode",
+									"value": "json"
+								},
+								{
+									"key": "units",
+									"value": "metric"
+								},
+								{
+									"key": "cnt",
+									"value": "4",
+									"description": "4 to have day +3 info the first one is the current day"
+								},
+								{
+									"key": "appid",
+									"value": "4081444b7b90198136fefe6ed4ccf35b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CurrentWeather",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL_CURRENT}}?q=Paris&appid=4081444b7b90198136fefe6ed4ccf35b&units=metric",
+							"host": [
+								"{{API_URL_CURRENT}}"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Paris"
+								},
+								{
+									"key": "appid",
+									"value": "4081444b7b90198136fefe6ed4ccf35b"
+								},
+								{
+									"key": "units",
+									"value": "metric"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,25 +1,27 @@
-
-// Fonction appelée lors du click du bouton
 function start() {
-  // Création de l'objet apiWeather
-  const apiWeather = new API_WEATHER();
 
-  // Appel de la fonction fetchTodayForecast
-  apiWeather
-    .fetchTodayForecast()
-    .then(function(response) {
-      // Récupère la donnée d'une API
-      const data = response.data;
+    // Récupérer la ville
+    let cityValue = document.getElementById('city-input').value;
 
-      putInformationDay(data, 'today', apiWeather);
-      
+    // Création de l'objet apiWeather
+    const apiWeather = new API_WEATHER(cityValue);
+
+    // Appel de la fonction fetchTodayForecast
+    apiWeather
+        .fetchTodayForecast()
+        .then(function(response) {
+            // Récupère la donnée d'une API
+            const data = response.data;
+
+            document.getElementById('current-city').innerHTML = data.name + ', ' + data.sys.country;
+            putInformationDay(data, 'today', apiWeather);
     })
-    .catch(function(error) {
+        .catch(function(error) {
       // Affiche une erreur
       console.error(error);
     });
 
-  // Appel de la fonction fetchGetThreeDayForecast
+    // Appel de la fonction fetchGetThreeDayForecast
     apiWeather
         .fetchGetThreeDayForecast()
         .then(function (response) {
@@ -36,9 +38,7 @@ function start() {
         })
         .catch(function (error) {
             console.error(error);
-        })
-
-
+        });
 }
 
 function putInformationDay(day, DOMprefix, apiWeather) {
