@@ -14,7 +14,7 @@ function start() {
             const data = response.data;
 
             document.getElementById('current-city').innerHTML = data.name + ', ' + data.sys.country;
-            putInformationDay(data, 'today', apiWeather);
+            putInformationDay(data, 'today');
     })
         .catch(function(error) {
       // Affiche une erreur
@@ -31,9 +31,9 @@ function start() {
             // get informations
             const list = data.list;
 
-            putInformationDay(list[1], 'tomorrow', apiWeather);
-            putInformationDay(list[2], 'after-tomorrow', apiWeather);
-            putInformationDay(list[3], 'after-tomorrow2', apiWeather);
+            putInformationDay(list[1], 'tomorrow');
+            putInformationDay(list[2], 'after-tomorrow');
+            putInformationDay(list[3], 'after-tomorrow2');
 
         })
         .catch(function (error) {
@@ -41,13 +41,13 @@ function start() {
         });
 }
 
-function putInformationDay(day, DOMprefix, apiWeather) {
+function putInformationDay(day, DOMprefix) {
 
     let main = day.weather[0].main;
     let description = day.weather[0].description;
 
     let iconID = day.weather[0].icon;
-    let icon = apiWeather.getHTMLElementFromIcon(iconID);
+    let icon = API_WEATHER.getHTMLElementFromIcon(iconID);
 
     let temp;
     if(DOMprefix === 'today') {

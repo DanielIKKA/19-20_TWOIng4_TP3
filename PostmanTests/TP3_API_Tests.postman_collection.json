@@ -15,9 +15,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{API_URL_DAILY}}?q=paris&mode=json&units=metric&cnt=4&appid=4081444b7b90198136fefe6ed4ccf35b",
+							"raw": "{{URL_DAILY}}?q=paris&mode=json&units=metric&cnt=4&appid={{API_KEY_OPENWEATHER}}",
 							"host": [
-								"{{API_URL_DAILY}}"
+								"{{URL_DAILY}}"
 							],
 							"query": [
 								{
@@ -39,7 +39,7 @@
 								},
 								{
 									"key": "appid",
-									"value": "4081444b7b90198136fefe6ed4ccf35b"
+									"value": "{{API_KEY_OPENWEATHER}}"
 								}
 							]
 						}
@@ -52,9 +52,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{API_URL_CURRENT}}?q=Paris&appid=4081444b7b90198136fefe6ed4ccf35b&units=metric",
+							"raw": "{{URL_CURRENT}}?q=Paris&units=metric&appid={{API_KEY_OPENWEATHER}}",
 							"host": [
-								"{{API_URL_CURRENT}}"
+								"{{URL_CURRENT}}"
 							],
 							"query": [
 								{
@@ -62,12 +62,12 @@
 									"value": "Paris"
 								},
 								{
-									"key": "appid",
-									"value": "4081444b7b90198136fefe6ed4ccf35b"
-								},
-								{
 									"key": "units",
 									"value": "metric"
+								},
+								{
+									"key": "appid",
+									"value": "{{API_KEY_OPENWEATHER}}"
 								}
 							]
 						}
